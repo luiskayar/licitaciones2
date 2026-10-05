@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DELPHOS — Motor de Licitaciones</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>DELPHOS <span class="header-sub">· Motor de Licitaciones</span></h1>
+      <p class="header-desc">Búsqueda automatizada en portales de compras públicas de LATAM</p>
+    </div>
+    <button id="btn-buscar" class="btn btn-primary">🔍 Ejecutar búsqueda ahora</button>
+  </header>
+
+  <div id="banner-error" class="banner banner-error" hidden></div>
+
+  <section id="panel-progreso" class="panel-progreso" hidden>
+    <div class="progreso-header">
+      <span id="progreso-estado">Iniciando búsqueda…</span>
+      <span id="progreso-pct">0%</span>
+    </div>
+    <div class="progreso-barra">
+      <div id="progreso-fill" class="progreso-fill"></div>
+    </div>
+    <p class="progreso-nota">Esto puede tardar unos minutos — recorre varios portales y analiza cada licitación con IA.</p>
+    <div id="progreso-log" class="progreso-log"></div>
+  </section>
+
+  <section class="toolbar">
+    <div class="toolbar-left">
+      <label for="select-fecha">Fecha de búsqueda</label>
+      <select id="select-fecha"></select>
+      <span id="stats-resumen" class="stats-resumen"></span>
+    </div>
+    <div class="toolbar-right">
+      <input id="filtro-texto" type="search" placeholder="Buscar por título, entidad, país…">
+      <div class="pills" id="filtro-nivel">
+        <button class="pill pill-active" data-nivel="TODAS">Todas</button>
+        <button class="pill" data-nivel="ALTA">Alta</button>
+        <button class="pill" data-nivel="MEDIA">Media</button>
+        <button class="pill" data-nivel="BAJA">Baja</button>
+      </div>
+      <button id="btn-json" class="btn btn-outline">⬇ JSON</button>
+      <button id="btn-pdf" class="btn btn-outline">⬇ PDF</button>
+    </div>
+  </section>
+
+  <main id="resultados" class="resultados"></main>
+
+  <p id="sin-resultados" class="sin-resultados" hidden>No hay licitaciones que coincidan con el filtro.</p>
+
+  <template id="tpl-card">
+    <article class="card">
+      <div class="card-header">
+        <span class="badge"></span>
+        <h2 class="card-titulo"></h2>
+      </div>
+      <div class="card-meta card-entidad"></div>
+      <div class="card-meta card-montocierre"></div>
+      <div class="card-razon"></div>
+      <a class="card-link" target="_blank" rel="noopener">Ver licitación ↗</a>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "delphos-licitaciones",
+  "version": "1.0.0",
+  "description": "Motor de búsqueda automatizada de licitaciones relevantes para DELPHOS GRC",
+  "main": "src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --env-file=.env src/server.js",
+    "buscar": "node --env-file=.env src/index.js",
+    "explorar": "node src/explorador.js",
+    "test:playwright": "npx playwright test",
+    "codegen": "npx playwright codegen",
+    "postinstall": "playwright install chromium"
+  },
+  "keywords": [
+    "licitaciones",
+    "delphos",
+    "playwright",
+    "grc",
+    "deinsa"
+  ],
+  "author": "DEINSA Global Intelligence",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  },
+  "dependencies": {
+    "axios": "^1.20.0",
+    "express": "^5.2.1",
+    "form-data": "^4.0.6",
+    "playwright": "^1.60.0"
+  }
+}

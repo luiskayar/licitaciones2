@@ -1,0 +1,57 @@
+licitaciones-main/
+|-- buscar.bat
+|-- package.json
+|-- playwright.config.js
+|-- Procfile
+|-- README.md
+|-- config/
+|   |-- delphos-perfil.json
+|   |-- ia.json
+|   `-- portales.json
+|-- data/
+|   |-- history/
+|   |   `-- licitaciones-vistas.json
+|   `-- results/
+|       |-- licitaciones-2026-05-12.json
+|       |-- licitaciones-2026-05-14.json
+|       |-- licitaciones-2026-05-18.json
+|       |-- licitaciones-2026-05-20.json
+|       |-- licitaciones-2026-05-21.json
+|       |-- licitaciones-2026-05-25.json
+|       |-- licitaciones-2026-05-27.json
+|       |-- licitaciones-2026-06-01.json
+|       |-- licitaciones-2026-06-03.json
+|       |-- licitaciones-2026-06-04.json
+|       |-- licitaciones-2026-06-10.json
+|       |-- licitaciones-2026-06-15.json
+|       |-- licitaciones-2026-06-18.json
+|       |-- licitaciones-2026-06-29.json
+|       |-- licitaciones-2026-07-02.json
+|       |-- licitaciones-2026-07-24.json
+|       |-- licitaciones-2026-07-28.json
+|       |-- licitaciones-2026-08-03.json
+|       |-- licitaciones-2026-08-11.json
+|       |-- licitaciones-2026-09-30.json
+|       `-- licitaciones-2026-09-30.json
+|-- public/
+|   |-- app.js
+|   |-- index.html
+|   `-- style.css
+`-- src/
+    |-- analista-gemini.js
+    |-- buscador.js
+    |-- explorador.js
+    |-- index.js
+    |-- server.js
+    `-- scrapers/
+        |-- compranet_mx.js
+        |-- dgcp_do.js
+        |-- licitaciones_nl.js
+        |-- mercadopublico_cl.js
+        |-- monterrey_mx.js
+        |-- panama_compras.js
+        |-- README.md
+        |-- seace_pe.js
+        |-- secop_co.js
+        |-- sicop_cr.js
+        `-- tianguis_cdmx.js

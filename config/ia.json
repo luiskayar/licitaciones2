@@ -1,0 +1,9 @@
+{
+  "_comentario": "Configuración de modelos de IA para análisis de licitaciones. La api_key real se toma de la variable de entorno GEMINI_API_KEY (ver .env) — 'xxx' aquí es solo un placeholder.",
+  "gemini": {
+    "api_key": "xxx",
+    "modelo": "gemini-2.5-flash",
+    "activo": true,
+    "max_por_lote": 10
+  }
+}

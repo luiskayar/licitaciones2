@@ -1,0 +1,136 @@
+{
+  "_comentario": "Portales de compras públicas — Luis debe confirmar URLs y agregar instrucciones de búsqueda",
+  "portales": [
+    {
+      "id": "mercadopublico_cl",
+      "nombre": "Mercado Público - Chile",
+      "pais": "Chile",
+      "url_base": "https://www.mercadopublico.cl",
+      "url_busqueda": "https://www.mercadopublico.cl/Procurement/Modules/RFB/SearchBasesAdvanced.aspx",
+      "api_base": "https://api.mercadopublico.cl/servicios/v1/publico/licitaciones.json",
+      "activo": true,
+      "modo": "api",
+      "api_ticket": "F8537A18-6766-4DEF-9E59-426B4FEE2844",
+      "_nota_ticket": "Ticket demo público de ChileCompra (compartido, con rate-limit). Para producción registrar en https://api.mercadopublico.cl",
+      "notas": "Portal activo. API REST pública actualizada cada 5min. Parámetros: ticket, fecha (ddmmyyyy), estado (publicada/cerrada/adjudicada), pagina."
+    },
+    {
+      "id": "sicop_cr",
+      "nombre": "SICOP - Costa Rica",
+      "pais": "Costa Rica",
+      "url_base": "https://www.sicop.go.cr",
+      "url_busqueda": "https://www.sicop.go.cr/moduloOferta/search/EP_SEJ_COQ600.jsp?stateSearch=Y",
+      "activo": true,
+      "modo": "playwright",
+      "notas": "Sin API pública. Playwright navega el buscador, filtra Estado=Publicado y fecha apertura >= hoy+8 días, pagina de 10 en 10."
+    },
+    {
+      "id": "guatecompras",
+      "nombre": "Guatecompras - Guatemala",
+      "pais": "Guatemala",
+      "url_base": "https://www.guatecompras.gt",
+      "url_busqueda": "",
+      "activo": false,
+      "notas": "Pendiente: confirmar URL de búsqueda"
+    },
+    {
+      "id": "honducompras",
+      "nombre": "HonduCompras - Honduras",
+      "pais": "Honduras",
+      "url_base": "https://www.honducompras.gob.hn",
+      "url_busqueda": "",
+      "activo": false,
+      "notas": "Pendiente: confirmar URL de búsqueda"
+    },
+    {
+      "id": "comprasal",
+      "nombre": "ComprasAL - El Salvador",
+      "pais": "El Salvador",
+      "url_base": "https://www.comprasal.gob.sv",
+      "url_busqueda": "",
+      "activo": false,
+      "notas": "Pendiente"
+    },
+    {
+      "id": "panama_compras",
+      "nombre": "PanamaCompra",
+      "pais": "Panamá",
+      "url_base": "https://www.panamacompra.gob.pa",
+      "url_busqueda": "https://www.panamacompra.gob.pa/Inicio/#/busqueda-avanzada-v2",
+      "activo": false,
+      "modo": "playwright",
+      "notas": "SPA Angular. Playwright abre la SPA para obtener sesión, luego llama al ASMX /Security/AmbientePublico.asmx/ListarActosParametros desde page.evaluate() con estado=2 (Vigente). Paginación por cursor Consecutivo. La lista no incluye fecha de cierre."
+    },
+    {
+      "id": "dgcp_do",
+      "nombre": "DGCP - República Dominicana",
+      "pais": "República Dominicana",
+      "url_base": "https://comunidad.comprasdominicana.gob.do",
+      "url_busqueda": "https://comunidad.comprasdominicana.gob.do/Public/Tendering/ContractNoticeManagement/Index",
+      "api_base": "https://datosabiertos.dgcp.gob.do/api-dgcp/v1",
+      "activo": true,
+      "modo": "api",
+      "notas": "API REST pública sin autenticación. GET /procesos?estado=Proceso+publicado&limit=100&page=N."
+    },
+    {
+      "id": "secop_co",
+      "nombre": "SECOP II - Colombia",
+      "pais": "Colombia",
+      "url_base": "https://community.secop.gov.co",
+      "api_base": "https://www.datos.gov.co/resource/p6dx-8zbt.json",
+      "activo": true,
+      "modo": "api",
+      "notas": "API Socrata pública en datos.gov.co. Filtro: estado_del_procedimiento='Publicado', últimos N días. Sin fecha de cierre en el dataset."
+    },
+    {
+      "id": "tianguis_cdmx",
+      "nombre": "ConcursoDigital - Ciudad de México",
+      "pais": "México",
+      "url_base": "https://concursodigital.finanzas.cdmx.gob.mx",
+      "url_busqueda": "https://concursodigital.finanzas.cdmx.gob.mx/convocatorias_publicas",
+      "activo": true,
+      "modo": "playwright",
+      "notas": "SPA con filtros (vigentes/cerradas, tipo, entidad). Intercepta las respuestas JSON del backend. Si captura 0 APIs, revisar si el portal usa rutas distintas a las palabras clave configuradas."
+    },
+    {
+      "id": "licitaciones_nl",
+      "nombre": "Licitaciones NL - Nuevo León",
+      "pais": "México",
+      "url_base": "https://nl.gob.mx",
+      "url_busqueda": "https://nl.gob.mx/es/licitaciones-dependencias-centrales",
+      "activo": true,
+      "modo": "playwright",
+      "notas": "Portal Drupal del Gobierno de Nuevo León. HTML estático. Extrae links del listado vigente y visita cada detalle. Pocos items por run (menos de 10 típicamente)."
+    },
+    {
+      "id": "monterrey_mx",
+      "nombre": "Licitaciones - Municipio de Monterrey",
+      "pais": "México",
+      "url_base": "https://www.monterrey.gob.mx",
+      "url_busqueda": "https://www.monterrey.gob.mx/transparencia/Convocatorias.html",
+      "activo": true,
+      "modo": "playwright",
+      "notas": "Portal municipal HTML estático. Publica convocatorias como texto y PDFs. Sin API. Si retorna 0, revisar si la URL de convocatorias cambió o si la página tiene nueva estructura."
+    },
+    {
+      "id": "compranet_mx",
+      "nombre": "ComprasMX - México",
+      "pais": "México",
+      "url_base": "https://comprasmx.buengobierno.gob.mx",
+      "url_busqueda": "https://comprasmx.buengobierno.gob.mx/sitiopublico/",
+      "activo": true,
+      "modo": "playwright",
+      "notas": "Portal renovado (antes CompraNet). SPA Angular — Playwright intercepta las respuestas JSON del backend. Si captura 0 APIs en el primer run, revisar selectores en compranet_mx.js y ajustar según la estructura real del portal."
+    },
+    {
+      "id": "seace_pe",
+      "nombre": "SEACE - Perú",
+      "pais": "Perú",
+      "url_base": "https://prod2.seace.gob.pe",
+      "url_busqueda": "https://prod2.seace.gob.pe/seacebus-uiwd-pub/buscadorPublico/buscadorPublico.xhtml",
+      "activo": false,
+      "modo": "playwright",
+      "notas": "Portal JSF sin API pública. Frecuentes mantenimientos. Si retorna 0, el portal puede estar caído."
+    }
+  ]
+}
